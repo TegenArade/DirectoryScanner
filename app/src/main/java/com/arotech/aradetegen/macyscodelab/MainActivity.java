@@ -120,23 +120,6 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
         return super.onOptionsItemSelected(item);
     }
 
-    private void share(DirectorySummery mDirectorySummery) {
-        if (mDirectorySummery != null) {
-            String shareBody = String.format(getString(R.string.share_body),
-                    mDirectorySummery.getTopBiggestFilesString(),
-                    mDirectorySummery.getTopFrequentFileExtensionsString(),
-                    mDirectorySummery.getAverageFileSizeString());
-            Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
-            sharingIntent.setType("text/plain");
-            sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, getString(R.string.share_subject));
-            sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
-            startActivity(Intent.createChooser(sharingIntent, getResources().getString(R.string.share_using)));
-        } else {
-            Toast.makeText(this, R.string.nothing_to_share, Toast.LENGTH_LONG).show();
-        }
-
-    }
-
     @OnClick(R.id.fab)
     void onFabButtonClick() {
         if (scanningInProgress) {
@@ -293,6 +276,25 @@ public class MainActivity extends AppCompatActivity implements ActivityCompat.On
             mNotificationManager.notify(NOTIFICATION_ID, builder.build());
         } else {
             mNotificationManager.cancel(NOTIFICATION_ID);
+        }
+    }
+
+    /**
+     * Share the summery via any sharing app
+     */
+    private void share(DirectorySummery mDirectorySummery) {
+        if (mDirectorySummery != null) {
+            String shareBody = String.format(getString(R.string.share_body),
+                    mDirectorySummery.getTopBiggestFilesString(),
+                    mDirectorySummery.getTopFrequentFileExtensionsString(),
+                    mDirectorySummery.getAverageFileSizeString());
+            Intent sharingIntent = new Intent(android.content.Intent.ACTION_SEND);
+            sharingIntent.setType("text/plain");
+            sharingIntent.putExtra(android.content.Intent.EXTRA_SUBJECT, getString(R.string.share_subject));
+            sharingIntent.putExtra(android.content.Intent.EXTRA_TEXT, shareBody);
+            startActivity(Intent.createChooser(sharingIntent, getResources().getString(R.string.share_using)));
+        } else {
+            Toast.makeText(this, R.string.nothing_to_share, Toast.LENGTH_LONG).show();
         }
     }
 }
