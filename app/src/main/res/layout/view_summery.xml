@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/headerBackground"
+        android:padding="@dimen/spacing_s"
+        android:text="@string/file_size_header" />
+
+    <TextView
+        android:id="@+id/biggest_file_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/spacing_s"
+        android:paddingRight="@dimen/spacing_s"
+        android:paddingTop="@dimen/spacing_s"
+        android:scrollbars="horizontal" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/headerBackground"
+        android:padding="@dimen/spacing_s"
+        android:text="@string/file_type_header" />
+
+    <TextView
+        android:id="@+id/frequent_file_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/spacing_s"
+        android:paddingRight="@dimen/spacing_s"
+        android:paddingTop="@dimen/spacing_s"
+        android:scrollbars="horizontal" />
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/headerBackground"
+        android:padding="@dimen/spacing_s"
+        android:text="@string/average_file_size_header" />
+
+    <TextView
+        android:id="@+id/average_file_size"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/spacing_s"
+        android:text="@string/file_type_header" />
+
+</LinearLayout>
